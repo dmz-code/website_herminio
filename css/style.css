@@ -1,0 +1,385 @@
+/* --- GENERAL STYLES / ESTILOS GENERALES --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #222; /* Mejor contraste, más profesional */
+    text-shadow: none;
+  }
+  
+  header {
+    background: #004990; 
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0.3rem 0 0.2rem 0;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  
+  header p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  
+  
+  nav {
+    background: #004990;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  nav ul li {
+    display: inline-flex;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Navigation Links / Enlaces de Navegación */
+  .nav-link {
+    padding: 10px 20px;
+    border-radius: 9999px; /* hace el botón bien redondo */
+    transition: background 0.3s, color 0.3s;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .nav-link.active {
+    background-color: #80ece5; /* fondo oscuro */
+    color:#fff; /* texto blanco */
+  }
+  
+  .nav-link:hover {
+    background-color: #80ece5;
+    color: #fff;
+  }
+  
+
+  section {
+    display: none;
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #111;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  section.active {
+    display: block;
+    min-height: 60vh;
+  }  
+  
+  footer {
+    background: #004990;
+    color: #fff;
+    text-align: center;
+    padding: 0.00rem;
+    margin-top: 0.5rem;
+  }
+  
+  .logo {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 0.3rem;
+    border-radius: 22px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* =========================
+   BACKGROUND VIDEO / VIDEO DE FONDO
+   ========================= */
+  #bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+  }
+  
+  /* =========================
+   TITLES / TÍTULOS
+   ========================= */
+  h1, h2 {
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: none;
+  }
+  
+  /* =========================
+   FORM STYLES / ESTILOS DE FORMULARIOS
+   ========================= */
+  input,
+  select,
+  textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+   GENERAL BUTTONS / BOTONES GENERALES
+   ========================= */
+  button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #1a252f;
+  }
+
+  /* =========================
+   SOCIAL LINKS / ENLACES A REDES SOCIALES
+   ========================= */
+  .social-links {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .social-links a {
+    display: inline-block;
+    margin: 0 15px;
+    transition: transform 0.2s ease;
+  }
+  
+  .social-links a:hover {
+    transform: scale(1.1);
+  }
+  
+  .social-links img {
+    width: 32px;
+    height: 32px;
+  }
+  section {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  section.active {
+    opacity: 1;
+  }
+
+  /* =========================
+   ESTIMATE SECTION / SECCIÓN DE ESTIMADOS
+   ========================= */
+  #estimate h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  #estimate form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #estimate input,
+  #estimate textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+  }
+  
+  #estimate button {
+    align-self: center;
+    padding: 10px 30px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #estimate button:hover {
+    background-color: #1a252f;
+  }
+  
+  /* =========================
+   IMAGE CAROUSEL / CARRUSEL DE IMÁGENES
+   ========================= */
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .carousel-track {
+    display: flex;
+    width: fit-content;
+    animation: scrollCarousel 20s linear infinite;
+  }
+  
+  .carousel-track img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Animation for carousel / Animación para carrusel */
+  @keyframes scrollCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* =========================
+   RESPONSIVE DESIGN / DISEÑO RESPONSIVO
+   ========================= */
+  @media (max-width: 600px) {
+    .carousel-track img {
+      max-width: 250px;
+    }
+  }
+  
+  /* =========================
+   LANGUAGE SWITCH / BOTÓN CAMBIO DE IDIOMA
+   ========================= */
+  .language-switch {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .language-switch button {
+    background-color: #fff;
+    color: #004990;
+    border: 2px solid #004990;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .language-switch button:hover {
+    background-color: #004990;
+    color: #fff;
+  }
+  
+  /* =========================
+   ABOUT US TEAM SECTION / SECCIÓN EQUIPO "SOBRE NOSOTROS"
+   ========================= */
+  #about-heading {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  .about-team {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 2rem auto;
+    max-width: 800px;
+    flex-wrap: nowrap; /* ❌ no se apilan nunca */
+    overflow-x: auto;   /* ✅ hace scroll si la pantalla es muy chica */
+  }
+  
+  .team-member {
+    text-align: center;
+    width: 200px;
+    min-width: 200px;
+    padding: 10px;
+    flex-shrink: 0;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-member h4 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .team-member p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+  }
+  
+  @media (max-width: 600px) {
+    nav ul {
+      flex-direction: column; /* ✅ Que los botones se acomoden uno abajo del otro en celulares */
+      align-items: center;     /* ✅ Que queden centrados */
+      gap: 10px;               /* ✅ Espacio entre ellos */
+    }
+  
+    .nav-link {
+      padding: 8px 16px;        /* ✅ Botón más compacto */
+      font-size: 0.9rem;        /* ✅ Letra más chica */
+    }
+  }
+  
+  /* =========================
+   SUBMIT BUTTON FORMS / BOTÓN DE ENVÍO PARA FORMULARIOS
+   ========================= */
+  .submit-button {
+    background-color: #28a745; /* verde */
+    color: #fff; /* letras blancas */
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838; /* un verde más oscuro al pasar el mouse */
+  }
+  
