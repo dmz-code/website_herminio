@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroBenefits from '../components/HeroBenefits.astro';
+import TopTabs from '../components/TopTabs.astro';
+const djangoBaseUrl = 'http://127.0.0.1:8000';
+---
+
+<Layout title="Quiavic | regresaa mexico pero mejor preparado">
+  <div class="top-bar">
+    <div class="lang-top">
+      <button type="button" id="langBtn">Español</button>
+    </div>
+  </div>
+
+  <main>
+    <HeroBenefits />
+    <TopTabs />
+
+    <section class="form-section active" data-form="regresar">
+      <div class="app-container">
+        <form class="container" data-endpoint="/api/quiero-regresar/">
+          <h2>Quiero regresar</h2>
+          <input required name="estado_actual" placeholder="¿En qué estado vives hoy?" />
+          <input required name="fecha_regreso" placeholder="¿En cuántos días planeas regresar?" />
+          <input required name="nivel_academico" placeholder="¿Cuál es tu nivel académico?" />
+          <input required name="estado_mexico" placeholder="¿A qué estado de México quieres regresar?" />
+          <button type="submit">Enviar</button>
+          <p class="feedback"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="form-section" data-form="oportunidades">
+      <div class="app-container">
+        <form class="container" data-endpoint="/api/oportunidades-mexico/">
+          <h2>Oportunidadese en mexico</h2>
+          <input required name="nombre" placeholder="Nombre" />
+          <input required name="email" type="email" placeholder="Email" />
+          <input required name="sector" placeholder="Sector de interés" />
+          <textarea required name="mensaje" rows="4" placeholder="¿Qué oportunidades buscas?"></textarea>
+          <button type="submit">Enviar</button>
+          <p class="feedback"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="form-section" data-form="asesoria">
+      <div class="app-container">
+        <form class="container" data-endpoint="/api/asesoria/">
+          <h2>asesoria</h2>
+          <input required name="nombre" placeholder="Nombre" />
+          <input required name="email" type="email" placeholder="Email" />
+          <input required name="tema" placeholder="Tema" />
+          <textarea required name="mensaje" rows="4" placeholder="Cuéntanos tu caso"></textarea>
+          <button type="submit">Enviar</button>
+          <p class="feedback"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="form-section" data-form="crecimiento">
+      <div class="app-container">
+        <form class="container" data-endpoint="/api/crecimiento-personal/">
+          <h2>crecimeinto personal</h2>
+          <input required name="nombre" placeholder="Nombre" />
+          <input required name="email" type="email" placeholder="Email" />
+          <input required name="objetivo" placeholder="Objetivo" />
+          <textarea required name="mensaje" rows="4" placeholder="¿En qué quieres crecer?"></textarea>
+          <button type="submit">Enviar</button>
+          <p class="feedback"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script define:vars={{ djangoBaseUrl }}>
+    const tabs = document.querySelectorAll('.benefit');
+    const sections = document.querySelectorAll('.form-section');
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      sections.forEach((s) => s.classList.toggle('active', s.dataset.form === tab.dataset.target));
+    }));
+
+    document.querySelectorAll('.container').forEach((form) => form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const feedback = form.querySelector('.feedback');
+      feedback.textContent = 'Enviando...';
+      try {
+        const payload = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch(`${djangoBaseUrl}${form.dataset.endpoint}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+        });
+        if (!response.ok) throw new Error();
+        feedback.textContent = 'Solicitud enviada correctamente.';
+        form.reset();
+      } catch {
+        feedback.textContent = 'No se pudo enviar. Revisa Django/CORS/CSRF.';
+      }
+    }));
+  </script>
+</Layout>
