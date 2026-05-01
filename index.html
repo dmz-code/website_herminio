@@ -1,227 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Herminio's Framing</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiavic | Regresaa Mexico pero mejor preparado</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-  <!-- Background Video / Video de fondo -->
-  <video autoplay muted loop playsinline id="bgVideo">
-    <source src="assets/Dnop.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <main class="container">
+    <header class="hero">
+      <p class="brand">Quiavic</p>
+      <h1>Regresaa Mexico pero mejor preparado</h1>
+      <p class="intro">Selecciona una opción para enviarnos tu información. Cada botón abre su propio formulario.</p>
+    </header>
 
-   <!-- Header / Encabezado -->
-  <header>
-    <div class="header-box">
-      <img src="assets/logo.JPG" alt="Herminio's Framing logo" class="logo" loading="lazy">
-      <h1>Herminio's Framing LLC</h1>
-      <p>Professional Framing Services</p>
-    </div>
+    <section class="actions" aria-label="Opciones de formulario">
+      <button class="action-btn active" data-target="regresar">Quiero regresar</button>
+      <button class="action-btn" data-target="oportunidades">Oportunidades en mexico</button>
+      <button class="action-btn" data-target="asesoria">Asesoria</button>
+      <button class="action-btn" data-target="crecimiento">Crecimeinto personal</button>
+    </section>
 
-    <!-- Language Switch Button / Botón para cambiar de idioma -->
-    <div class="language-switch">
-      <button id="langToggle">Español</button>
-    </div>
-  </header>
+    <section class="forms">
+      <form class="card active" data-form="regresar" data-endpoint="/api/quiero-regresar/">
+        <h2>Quiero regresar</h2>
+        <input name="nombre" placeholder="Nombre completo" required />
+        <input name="email" type="email" placeholder="Correo electrónico" required />
+        <input name="telefono" placeholder="Teléfono" required />
+        <textarea name="plan" rows="4" placeholder="¿Cuándo quieres regresar y qué necesitas?" required></textarea>
+        <button type="submit">Enviar solicitud</button>
+        <p class="feedback" aria-live="polite"></p>
+      </form>
 
- <!-- Navigation Menu / Menú de navegación -->
-  <nav>
-    <ul>
-      <li><a href="#services" class="nav-link">Services</a></li>
-      <li><a href="#Contact" class="nav-link">Contact</a></li>
-      <li><a href="#about" class="nav-link">About Us</a></li>
-      <li><a href="#subcontractor" class="nav-link">Apply as Subcontractor</a></li>
-    </ul>
-  </nav>
+      <form class="card" data-form="oportunidades" data-endpoint="/api/oportunidades-mexico/">
+        <h2>Oportunidades en mexico</h2>
+        <input name="nombre" placeholder="Nombre completo" required />
+        <input name="email" type="email" placeholder="Correo electrónico" required />
+        <input name="sector" placeholder="Sector de interés" required />
+        <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué oportunidades estás buscando" required></textarea>
+        <button type="submit">Enviar solicitud</button>
+        <p class="feedback" aria-live="polite"></p>
+      </form>
 
-  <!-- Services Section / Sección de Servicios -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Wall Framing</li>
-      <li>Room Additions</li>
-      <li>Wood Structures</li>
-      <li>Custom Remodels</li>
-      <li>Fence Installation</li>
-      <li>Deck Construction</li>
-      <li>Patio Covers & Pergolas</li>
-      <li>Exterior Wood Repairs</li>
-      <li>Framing for New Homes</li>
-      <li>Garage & Carport Framing</li>
-      <li>Structural Reinforcements</li>   
-    </ul>
+      <form class="card" data-form="asesoria" data-endpoint="/api/asesoria/">
+        <h2>Asesoria</h2>
+        <input name="nombre" placeholder="Nombre completo" required />
+        <input name="email" type="email" placeholder="Correo electrónico" required />
+        <input name="tema" placeholder="Tema de asesoría" required />
+        <textarea name="detalle" rows="4" placeholder="Describe tu caso" required></textarea>
+        <button type="submit">Enviar solicitud</button>
+        <p class="feedback" aria-live="polite"></p>
+      </form>
 
-    <!-- Image Carousel / Carrusel de Imágenes -->
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="assets/gallery1.JPG" alt="Wall Framing" loading="lazy">
-        <img src="assets/gallery2.JPG" alt="Deck Construction" loading="lazy">
-        <img src="assets/gallery3.JPG" alt="Patio Covers" loading="lazy">
-        <img src="assets/gallery4.JPG" alt="Garage Framing" loading="lazy">
-        <img src="assets/gallery5.jpg" alt="house framing" loading="lazy">
-        <img src="assets/gallery6.jpg" alt="siding framing" loading="lazy">
-      </div>
-    </div>
-  </section> 
+      <form class="card" data-form="crecimiento" data-endpoint="/api/crecimiento-personal/">
+        <h2>Crecimeinto personal</h2>
+        <input name="nombre" placeholder="Nombre completo" required />
+        <input name="email" type="email" placeholder="Correo electrónico" required />
+        <input name="objetivo" placeholder="Objetivo principal" required />
+        <textarea name="mensaje" rows="4" placeholder="¿En qué área quieres crecer?" required></textarea>
+        <button type="submit">Enviar solicitud</button>
+        <p class="feedback" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
 
-  <!-- About Us Section / Sección Sobre Nosotros -->
-  <section id="about">
-    <h2 id="about-title">About Us</h2>
-    <h2>Herminio's Framing LLC</h2>
-
-    <!-- Team Members / Miembros del equipo -->
-  <div class="about-team">
-    <div class="team-member">
-      <img src="assets/owner .png" alt="Herminio Ruiz - Owner" loading="lazy">
-      <h4>Herminio Ruiz</h4>
-      <h5>Owner & Founder</h5>
-      <p style="margin: 5px 0;">
-        📧 <a href="mailto:herminioruiz@herminiosframingllc.com">herminioruiz@herminiosframingllc.com</a>
-      </p>
-    </div>
-    <div class="team-member">
-      <img src="assets/fanny.webp" alt="Stephanie - Project Manager" loading="lazy">
-      <h4>Stephanie</h4>
-      <h5>Project Manager</h5> 
-      <p style="margin: 5px 0;">
-        📞 <a href="tel:+12107496106">(210) 749-6106</a><br>
-        📧 <a href="mailto:stephanie@herminiosframingllc.com">stephanie@herminiosframingllc.com</a>
-      </p>
-    </div>
-  </div>
-  
-  <!-- About Us Text / Texto Sobre Nosotros -->
-    <h3 id="about-heading">
-      Herminio’s Framing LLC was founded with a simple mission: bring quality craftsmanship and honest service 
-      to every home we touch. It all started on a small job in San Antonio, where Herminio picked up his tools 
-      and built more than a structure — he built a reputation. With over a decade of hands-on experience in 
-      framing and construction, Herminio realized that what sets great builders apart isn't just the final result — 
-      it's the care they put into every detail, every client conversation, and every cut of wood.
-      <br><br>
-      Driven by this belief, he created Herminio’s Framing LLC — a small company with big standards. 
-      We’re committed to being the team that shows up on time, treats your home with respect, and makes your vision our blueprint.
-      From our first project to today, referrals and trust have been the foundation of our growth.
-      Homeowners across San Antonio continue to call on us not just because we build well — but because we build relationships that last.
-      <br><br>
-      Whether you're expanding your space, framing a brand-new home, or adding a custom structure, 
-      we’re here to deliver with integrity, skill, and care — every single time. 
-      We communicate clearly from start to finish. We honor deadlines and budgets.
-      We treat your project as if it were our own — because we know how much it means to you.
-      <br><br>
-      <strong>Let’s build something great together.</strong>  
-      <a href="mailto:herminiosruiz@herminiosframingllc.com">herminiosruiz@herminiosframingllc.com</a> 
-      to schedule your estimate today.
-    </h3>
-  </section>
-  
-   <!-- Contact Section / Sección de Contacto -->
- <section id="Contact">
-    <h2>ESTIMATES IN 24 HOURS OR LESS</h2>
-    <form id="contactForm" method="POST" enctype="multipart/form-data">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone Number" required>
-      <textarea name="details" placeholder="Describe your project..." rows="5" required></textarea>
-      
-        <!-- File Upload / Subir Archivo -->
-    <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.pdf">
-      <input type="hidden" id="langField" name="lang" value="en"> 
-      <button type="submit">Contact</button>
-      <div id="formResponse" style="margin-top: 10px;"></div>
-    </form>
-
-    <!-- Direct Contact Info / Información de Contacto Directo -->
-    <div class="estimate-contact">
-      <h3>Need Help? Contact Us Directly:</h3>
-      <p>Email:
-        <a href="contact@herminiosframingLLC.com">
-          contact@herminiosframingLLC.com
-        </a>
-      </p>
-      <p>Call Herminio (Spanish):
-        <a href="tel:+12103138239">(210) 313-8239</a>
-      </p>
-      <p>Call Stephanie (English):
-        <a href="tel:+12107496106">(210) 749-6106</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Subcontractor Application / Aplicación para Subcontratistas -->
-  <section id="subcontractor">
-    <h2>Apply as Subcontractor</h2>
-  <h3>Join Our Team</h3>
-  
-  <form id="subcontractorForm" method="POST" enctype="multipart/form-data" style="max-width: 700px; margin: auto; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-    
-    <div style="margin-bottom: 1rem;">
-      <input type="text" name="business" placeholder="Business Name / Nombre de Negocio" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <input type="text" name="itin_ssn" placeholder="ITIN / EIN or SSN" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <input type="text" name="name" placeholder="Full Name / Nombre Completo" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <input type="tel" name="phone" placeholder="Phone Number / Número de Teléfono" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <input type="text" name="experience" placeholder="Experience / Experiencia" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required>
-    </div>
-
-    <div style="margin-bottom: 1rem;">
-      <textarea name="additionalInfo" placeholder="Tell us about yourself / Cuéntanos sobre ti..." rows="5" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;" required></textarea>
-    </div>
-
-    <!-- File Upload / Subir Archivo -->
-    <div style="margin-bottom: 1rem;">
-      <label style="font-size: 0.95rem; display: block; margin-bottom: 5px;">Attach Resume or Certificates (PDF, JPG, PNG) / Agregar fotos de trabajos realizados (PDF, JPG, PNG)</label>
-      <input type="file" name="attachment" accept=".pdf,.jpg,.jpeg,.png" style="width: 100%; padding: 10px;">
-    </div>
-
-     <!-- Consent Text / Texto de Consentimiento -->
-    <p style="font-size: 0.85rem; color: #555; margin-top: 1rem; text-align: center;">
-      By submitting this form, you consent to Herminio's Framing LLC collecting and using your information for employment consideration.
-    </p>
-
-    <!-- Submit Button / Botón de Enviar -->
-    <div style="text-align: center; margin-top: 2rem;">
-      <button type="submit" class="submit-button">Submit Application</button>
-    </div>
-
-    <div id="subcontractorResponse" style="margin-top: 15px; text-align: center;"></div>
-  </form>
-  </section>  
-
-  <!-- Footer / Pie de Página -->
-  <footer>
-    <div class="social-links">
-      <a href="https://www.facebook.com/profile.php?id=61571734201874" target="_blank" aria-label="Facebook">
-        <img src="assets/fbicon.jpg" alt="Facebook">
-      </a>
-      <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
-        <img src="assets/tiktokicon.png" alt="TikTok">
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-        <img src="assets/igicon.png" alt="Instagram">
-      </a>
-    </div>
-    <p>&copy; 2025 Herminio's Framing. All rights reserved.</p>
-  </footer>
   <script src="js/main.js"></script>
 </body>
 </html>
